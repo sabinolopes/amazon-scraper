@@ -13,7 +13,7 @@ const createProductList = (product, ul) => {
       const li = document.createElement('li');
       li.innerHTML = `
           <div>
-              <img src="${imageUrl}" alt="${title}" width="100">
+              <img src="${imageUrl}" alt="${title}">
               <div>
                   <p>Title: ${title}</p>
                   <p>Rating: ${rating}</p>
