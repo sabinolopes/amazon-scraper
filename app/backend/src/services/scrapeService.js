@@ -4,11 +4,9 @@ import { JSDOM } from 'jsdom';
 // Function to generate the URL
 const getUrl = (keyword) => `https://www.amazon.com/s?k=${keyword}`;
 
-// Function to scrape Amazon
-const scrapeAmazon = async (keyword) => {
-    try {
-    const url = getUrl(keyword);
-    const { data } = await axios.get(url, {
+// Function to request data
+const requestData = async (url) => {
+   const { data } = await axios.get(url, {
         // Set the headers to avoid getting blocked
         headers: {
             Accept: 'text/html,*/*',
@@ -17,6 +15,15 @@ const scrapeAmazon = async (keyword) => {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         },
     });
+    return data;
+}
+
+// Function to scrape Amazon
+const scrapeAmazon = async (keyword) => {
+    try {
+    const url = getUrl(keyword);
+    // Request the data
+    const data = await requestData(url);
     // Parse the HTML
     const dom = new JSDOM(data);
     const document = dom.window.document;
@@ -25,7 +32,6 @@ const scrapeAmazon = async (keyword) => {
      
     // Extract the data
     const scrapedData = [];
-
     products.forEach(product => {
         // Get the title
         const titleElement = product.querySelector('h2 span');
