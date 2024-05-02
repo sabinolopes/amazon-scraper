@@ -4,23 +4,8 @@ const keywordInput = document.getElementById('keywordInput');
 
 const API_URL = 'http://localhost:3001/api/scrape?keyword=';
 
-// Function to display the results
-const displayResults = (data) => {
-  // Get the results div
-  const resultsDiv = document.getElementById('results');
-
-  // Clear the previous results
-  resultsDiv.innerHTML = '';
-
-  // Check if there are no results
-  if (data.length === 0) {
-      resultsDiv.innerHTML = '<p>No results found.</p>';
-      return;
-  }
-
-  // Create a list of products
-  const ul = document.createElement('ul');
-  data.forEach(product => {
+ // Function to create a list of products
+const createProductList = (product, ul) => {
     const { title, rating, reviews, imageUrl } = product;
 
     if (!title || !rating || !reviews || !imageUrl)  return;
@@ -37,7 +22,25 @@ const displayResults = (data) => {
           </div>
       `;
       ul.appendChild(li);
-  });
+}
+
+// Function to display the results
+const displayResults = (data) => {
+  // Get the results div
+  const resultsDiv = document.getElementById('results');
+
+  // Clear the previous results
+  resultsDiv.innerHTML = '';
+
+  // Check if there are no results
+  if (data.length === 0) {
+      resultsDiv.innerHTML = '<p>No results found.</p>';
+      return;
+  }
+
+  // Create a list of products
+  const ul = document.createElement('ul');
+  data.forEach((product) => createProductList(product, ul));
 
   // Append the list to the results div
   resultsDiv.appendChild(ul);
