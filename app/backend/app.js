@@ -1,8 +1,9 @@
-const express = require('express');
-const scrapeRoutes = require('./src/routes/scrapeRoutes');
+import express from 'express';
+import scrapeRoutes from './src/routes/scrapeRoutes.js'
 
 const app = express();
 
 // API routes
-app.use('/api/scrape', scrapeRoutes);
+app.use(scrapeRoutes);
 
+export default app;
