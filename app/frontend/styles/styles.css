@@ -4,11 +4,11 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  max-height: 100vh;
 }
 
 .container {
-  width: 400px;
+  min-width: 400px;
   padding: 50px;
   background-color: #fff;
   border-radius: 5px;
