@@ -22,7 +22,9 @@ This project is a data scraper for Amazon. It is used to extract product informa
     npm start
 
 4.  **Open the Frontend**:
-    Open the index.html file in your preferred web browser. You can do this by double-clicking the file or by running a local server (with live server) if needed.
+    Navigate to the project frontend directory and run the frontend server using Vite. You can run it using:
+    ```bash
+    npm run dev
 
 5.  **Test the Application**:
     Type a keyword into the input field and click the "Scrape" button. This will trigger an AJAX call to the backend endpoint, which will scrape data based on the provided keyword and display the results on the page.
