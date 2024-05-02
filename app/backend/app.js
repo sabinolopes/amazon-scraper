@@ -1,4 +1,8 @@
 const express = require('express');
-const axios = require('axios');
-const { JSDOM } = require('jsdom');
+const scrapeRoutes = require('./src/routes/scrapeRoutes');
+
+const app = express();
+
+// API routes
+app.use('/api/scrape', scrapeRoutes);
 
