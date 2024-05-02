@@ -1,3 +1,4 @@
+// Function: mapStatusHTTP to map the status to the corresponding HTTP status code
 function mapStatusHTTP(status) {
   switch (status) {
     case 'UNAUTHORIZED': return 401;
