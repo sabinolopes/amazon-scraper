@@ -1,32 +1,17 @@
+const getElementData = (product, selector, attribute = 'textContent') => {
+  const element = product.querySelector(selector);
+  return element ? element[attribute].trim() : '';
+};
+
 const scrapingData = (products) => {
-  const scrapedData = [];
-  
-  products.forEach((product) => {
-    // Get the title
-    const titleElement = product.querySelector('h2 span');
-    const title = titleElement ? titleElement.textContent.trim() : '';
+  const productsArray = Array.from(products);  
 
-    // Get the rating
-    const ratingElement = product.querySelector('.a-icon-alt');
-    const rating = ratingElement ? ratingElement.textContent.trim() : '';
-
-    // Get the number of reviews
-    const reviewElement = product.querySelector('.a-size-base.s-underline-text');
-    const reviews = reviewElement ? reviewElement.textContent.trim() : '';
-
-    // Get the image URL
-    const imageElement = product.querySelector('.s-image');
-    const imageUrl = imageElement ? imageElement.getAttribute('src') : '';
-    
-    // Add the data to the array
-    scrapedData.push({
-        title,
-        rating,
-        reviews,
-        imageUrl
-    });
-});
-    return scrapedData;
+  return productsArray.map((product) => ({
+    title: getElementData(product, 'h2 span'),
+    rating: getElementData(product, '.a-icon-alt'),
+    reviews: getElementData(product, '.a-size-base.s-underline-text'),
+    imageUrl: getElementData(product, '.s-image', 'src'),
+  }));
 };
 
 export default scrapingData;
