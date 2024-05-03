@@ -25,7 +25,7 @@ This project is a data scraper for Amazon. It is used to extract product informa
 1. **Clone the Repository**: 
    Clone the repository to your local machine using the following command:
    ```bash
-   git clone git@github.com:sabinolopes/amazon-scraper.gi
+   git clone git@github.com:sabinolopes/amazon-scraper.git
 2. **Install Dependencies**:
     Navigate to the project backend directory and install the dependencies using npm:
     ```bash
