@@ -12,7 +12,7 @@ This project is a data scraper for Amazon. It is used to extract product informa
    git clone git@github.com:sabinolopes/amazon-scraper.git
 
 2. **Install Dependencies**:
-    Navigate to the project backend directory and install the   dependencies using npm:
+    Navigate to the project backend directory and install the dependencies using npm:
     ```bash
     npm install
 
@@ -22,9 +22,9 @@ This project is a data scraper for Amazon. It is used to extract product informa
     npm run dev
 
 4.  **Open the Frontend**:
-    Navigate to the project frontend directory and run the frontend server using Vite. You can run it using:
+    Navigate to the project frontend directory, install the dependencies and run the frontend server using Vite. You can run it using:
     ```bash
-    npm run dev
+    npm install && npm run dev
 
 5.  **Test the Application**:
     Type a keyword into the input field and click the "Scrape" button. This will trigger an AJAX call to the backend endpoint, which will scrape data based on the provided keyword and display the results on the page.
