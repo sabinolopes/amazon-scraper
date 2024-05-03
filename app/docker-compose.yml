@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app/frontend:/usr/src/app/frontend
+    healthcheck:
+      test: ["CMD", "lsof", "-t", "-i:3000"] 
+      timeout: 10s
+      retries: 5
+  backend:
+    container_name: backend
+    build: ./backend
+    ports:
+      - 3001:3001
+    command: dev 
+    volumes:
+      - ./app/backend:/usr/src/app/backend

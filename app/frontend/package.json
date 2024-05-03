@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --open",
+    "dev-docker": "vite --port 3000 --host",
     "build": "vite build",
     "preview": "vite preview"
   },
