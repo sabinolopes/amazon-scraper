@@ -19,7 +19,7 @@ This project is a data scraper for Amazon. It is used to extract product informa
 3. **Run the Backend Server**:
     Run the backend server using Node.js. You can run it using:
     ```bash
-    npm start
+    npm run dev
 
 4.  **Open the Frontend**:
     Navigate to the project frontend directory and run the frontend server using Vite. You can run it using:
